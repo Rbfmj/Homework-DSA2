@@ -11,7 +11,6 @@ namespace Homework_DSA2
     {
         public static void Main(string[] args)
         {
-            // Example graph in DOT format
             string dotGraph = "graph {\n" +
                               "    A -- B [label = \"5\"];\n" +
                               "    A -- C [label = \"3\"];\n" +
@@ -22,7 +21,6 @@ namespace Homework_DSA2
                               "    D -- E [label = \"1\"];\n" +
                               "}";
 
-            // Parse graph from DOT notation
             var graph = DotParser.Parse(dotGraph);
 
             string source = "C";
@@ -54,14 +52,13 @@ namespace Homework_DSA2
                 if (!graph.ContainsKey(node2)) graph[node2] = new List<(string, int)>();
 
                 graph[node1].Add((node2, weight));
-                graph[node2].Add((node1, weight)); // Undirected graph
+                graph[node2].Add((node1, weight));
             }
 
             return graph;
         }
     }
 
-    // Implementation of Dijkstra's Algorithm using ABV
     public class DijkstraABV
     {
         public static void Dijkstra(Dictionary<string, List<(string, int)>> graph, string source)
@@ -115,7 +112,6 @@ namespace Homework_DSA2
         }
     }
 
-    // MinHeap Class
     public class MinHeap
     {
         private List<(string, int)> _elements = new List<(string, int)>();
@@ -200,7 +196,6 @@ namespace Homework_DSA2
         }
     }
 
-    // Implementation of Dijkstra's Algorithm using MinHeap
     public class DijkstraMinHeap
     {
         public static void Dijkstra(Dictionary<string, List<(string, int)>> graph, string source)
